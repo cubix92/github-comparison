@@ -5,7 +5,9 @@
 This is a simple web application using Zend Framework 3 whose purpose is to compare any 
 two repositories fetching from GitHub. It takes links or names of any two public GitHub 
 repositories and return the basics statistics of these repositories together with their 
-comparison. For this reason added a simple formula calculating scoring of each repository:
+comparison. For this reason added a simple formula calculating scoring of each repository.
+
+Below I present the mentioned formula:
 
 ```bash
 scores = stars + forks + watchers + closed pull requests - open pull requests
@@ -59,6 +61,6 @@ You can send links or names of any two public GitHub repositories.
 future it should be separated.
 - Adding hypermedia controls to reach third level of Richardson Maturity Model. Using HATEOAS
 extends possibilities of API.
-- Adding support for more repositories. 
+- Adding support for more than two repositories. 
 - For such reason we should also work on optimization. We can, for example, change GET into 
 POST. Thanks to that change I can save comparison in database and handle it after processing.
