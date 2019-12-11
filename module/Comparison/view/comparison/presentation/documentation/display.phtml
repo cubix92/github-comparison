@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?= $this->headTitle('Comparison API Documentation')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?= $this->headMeta()
+        ->appendName('charset', 'UTF-8')
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <?= $this->headLink([
+            'rel' => 'shortcut icon',
+            'type' => 'image/vnd.microsoft.icon',
+            'href' => $this->basePath() . '/favicon-swagger.png'])
+        ->prependStylesheet($this->basePath('swagger/css/swagger-ui.css'))
+        ->prependStylesheet(
+            'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600
+            |Titillium+Web:400,600,700'
+        )
+    ?>
+
+    <?= $this->headStyle() ?>
+
+    <?php $this->headStyle()->captureStart() ?>
+        html
+        {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after
+        {
+            box-sizing: inherit;
+        }
+
+        body
+        {
+            margin:0;
+            background: #fafafa;
+        }
+    <?php $this->headStyle()->captureEnd() ?>
+
+    <?= $this->headScript()
+        ->prependFile($this->basePath('swagger/js/swagger-ui-bundle.js'))
+        ->prependFile($this->basePath('swagger/js/swagger-ui-standalone-preset.js'));
+    ?>
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script>
+    window.onload = function() {
+
+        // Build a system
+        const ui = SwaggerUIBundle({
+            url: "<?= $this->url('api/v1/specification', [], ['force_canonical' => true]) ?>",
+            dom_id: '#swagger-ui',
+            validatorUrl : null,
+            deepLinking: true,
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl
+            ],
+            layout: "StandaloneLayout"
+        });
+
+        window.ui = ui
+    }
+</script>
+</body>
+</html>

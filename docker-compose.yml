@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: comparison_web
+    restart: always
+    tty: true
+    environment:
+      - XDEBUG_CONFIG="remote_host=10.5.0.2"
+      - PHP_IDE_CONFIG="serverName=comparison.loc"
+    networks:
+      comparison_network:
+        aliases:
+          - comparison.loc
+        ipv4_address: 10.5.0.2
+    volumes:
+      - .:/var/www/comparison
+networks:
+  comparison_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
