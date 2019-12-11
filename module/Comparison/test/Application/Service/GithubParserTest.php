@@ -57,6 +57,16 @@ class GithubParserTest extends TestCase
         $this->githubParser->parse($invalidUrlParameter);
     }
 
+    public function testExceptionIsThrownWhenPassingSlashParameter()
+    {
+        $slashParameter = '/';
+
+        $this->expectException(InvalidSlugException::class);
+        $this->expectExceptionMessage("'/' is invalid. Please correct this parameter and will send it again.");
+
+        $this->githubParser->parse($slashParameter);
+    }
+
     public function testExceptionIsThrownWhenPassingEmptyParameter()
     {
         $emptyParameter = '';

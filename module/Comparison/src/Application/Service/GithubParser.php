@@ -33,6 +33,12 @@ class GithubParser implements ParserInterface
 
         $slug = trim($uri->getPath(), '/');
 
+        if(!$slug) {
+            throw new ParserInvalidArgument(
+                "'$parameter' is invalid. Please correct this parameter and will send it again."
+            );
+        }
+
         return new RepositorySlug($slug);
     }
 }
