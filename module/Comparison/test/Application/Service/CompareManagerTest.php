@@ -69,5 +69,13 @@ class CompareManagerTest extends TestCase
         $this->assertArrayHasKey('openPullRequests', $secondResult);
         $this->assertArrayHasKey('closePullRequests', $secondResult);
         $this->assertArrayHasKey('lastReleaseDate', $secondResult);
+        $this->assertEquals(RepositoryFactory::USERNAME, $firstResult['username']);
+        $this->assertEquals(RepositoryFactory::NAME, $firstResult['name']);
+        $this->assertEquals(RepositoryFactory::FORKS, $firstResult['forks']);
+        $this->assertEquals(RepositoryFactory::STARS, $firstResult['stars']);
+        $this->assertEquals(RepositoryFactory::WATCHERS, $firstResult['watchers']);
+        $this->assertEquals(RepositoryFactory::OPEN_PULL_REQUESTS, $firstResult['openPullRequests']);
+        $this->assertEquals(RepositoryFactory::CLOSE_PULL_REQUESTS, $firstResult['closePullRequests']);
+        $this->assertEquals(RepositoryFactory::LAST_RELEASE_DATE, $firstResult['lastReleaseDate']);
     }
 }
