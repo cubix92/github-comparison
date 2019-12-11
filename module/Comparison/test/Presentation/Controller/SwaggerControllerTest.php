@@ -29,6 +29,7 @@ class SwaggerControllerTest extends AbstractHttpControllerTestCase
     public function testDocumentationCanBeAccessed()
     {
         $this->dispatch('/');
+
         $this->assertResponseStatusCode(200);
         $this->assertModuleName('Comparison');
         $this->assertControllerName(DocumentationController::class);
