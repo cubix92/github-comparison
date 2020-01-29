@@ -1,0 +1,19 @@
+language: php
+php:
+  - 7.2
+os:
+  - linux
+stages:
+  - test
+jobs:
+  include:
+    - stage: test
+      skip_cleanup: true
+      install:
+        - composer self-update
+        - composer require squizlabs/php_codesniffer:dev-master
+        - composer install
+        - phpenv rehash
+      script:
+        - vendor/bin/phpcs --standard=phpcs.xml
+        - composer test

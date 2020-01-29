@@ -35,7 +35,7 @@
         "development-enable": "zf-development-mode enable",
         "development-status": "zf-development-mode status",
         "serve": "php -S 0.0.0.0:8081 -t public public/index.php",
-        "test": "phpunit"
+        "test": "./vendor/bin/phpunit"
     },
     "require-dev": {
         "zendframework/zend-test": "^3.3"
