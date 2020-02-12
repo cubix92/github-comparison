@@ -38,6 +38,8 @@
         "test": "./vendor/bin/phpunit"
     },
     "require-dev": {
-        "zendframework/zend-test": "^3.3"
+        "zendframework/zend-test": "^3.3",
+        "behat/behat": "^3.6",
+        "noiselabs/zf-test-case-behat-extension": "^0.2.0"
     }
 }

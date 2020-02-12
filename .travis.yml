@@ -8,7 +8,6 @@ stages:
 jobs:
   include:
     - stage: test
-      skip_cleanup: true
       install:
         - composer self-update
         - composer require squizlabs/php_codesniffer:dev-master

@@ -1,0 +1,10 @@
+default:
+  suites:
+    default:
+      paths:
+        [ '%paths.base%/module/Comparison/test/Features' ]
+      contexts:
+        [ ComparisonTest\Features\Bootstrap\CompareContext ]
+  extensions:
+    Noiselabs\Behat\ZfTestCaseExtension\ServiceContainer\ZfTestCaseExtension:
+      configuration: config/application.config.php
