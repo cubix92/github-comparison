@@ -13,6 +13,6 @@ jobs:
         - composer install
         - phpenv rehash
       script:
-        - vendor/bin/phpcs --standard=phpcs.xml
+        - composer cs-check
         - composer test:unit
         - composer test:integration

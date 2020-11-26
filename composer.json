@@ -29,7 +29,7 @@
         }
     },
     "scripts": {
-        "cs-check": "phpcs",
+        "cs-check": "phpcs --standard=phpcs.xml",
         "cs-fix": "phpcbf",
         "development-disable": "laminas-development-mode disable",
         "development-enable": "laminas-development-mode enable",
@@ -42,6 +42,7 @@
         "laminas/laminas-test": "^3.3",
         "behat/behat": "^3.6",
         "noiselabs/zf-test-case-behat-extension": "^0.2.0",
-        "phpspec/prophecy-phpunit": "^2.0"
+        "phpspec/prophecy-phpunit": "^2.0",
+        "squizlabs/php_codesniffer": "*"
     }
 }
