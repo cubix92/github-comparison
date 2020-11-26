@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Comparison\Application\Service;
 
 use Comparison\Domain\ValueObject\RepositorySlug;
-use Zend\Uri\Exception\InvalidArgumentException;
+use Laminas\Uri\Exception\InvalidArgumentException;
 use Comparison\Application\Exception\InvalidArgumentException as ParserInvalidArgument;
-use Zend\Uri\Uri;
-use Zend\Uri\UriFactory;
+use Laminas\Uri\Uri;
+use Laminas\Uri\UriFactory;
 
 class GithubParser implements ParserInterface
 {

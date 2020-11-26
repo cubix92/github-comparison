@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Comparison\Presentation\Controller;
 
-use Zend\Json\Json;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\JsonModel;
-use Zend\View\Model\ViewModel;
+use Laminas\Json\Json;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\JsonModel;
+use Laminas\View\Model\ViewModel;
 use function Swagger\scan;
 
 class DocumentationController extends AbstractActionController

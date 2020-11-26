@@ -11,7 +11,7 @@ class RepositorySlugTest extends TestCase
 {
     public function testGetsPropertiesCorrectly(): void
     {
-        $validSlug = 'zendframework/zend-barcode';
+        $validSlug = 'laminas/laminas-barcode';
         list($username, $repositoryName) = explode('/', $validSlug);
 
         $repositorySlug = new RepositorySlug($validSlug);

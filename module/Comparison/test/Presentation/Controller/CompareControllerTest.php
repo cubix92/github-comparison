@@ -11,9 +11,9 @@ use Comparison\Domain\Exception\InvalidSlugException;
 use Comparison\Domain\ValueObject\RepositorySlug;
 use Comparison\Presentation\Controller\CompareController;
 use Prophecy\Argument;
-use Zend\Mvc\Controller\AbstractRestfulController;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Laminas\Mvc\Controller\AbstractRestfulController;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
 class CompareControllerTest extends AbstractHttpControllerTestCase
 {

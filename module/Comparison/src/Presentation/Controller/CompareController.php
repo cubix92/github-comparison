@@ -8,8 +8,8 @@ use Comparison\Application\Service\CompareInterface;
 use Comparison\Application\Service\ParserInterface;
 use Comparison\Application\Exception\NotFoundRepositoryException;
 use Comparison\Domain\Exception\InvalidSlugException;
-use Zend\Mvc\Controller\AbstractRestfulController;
-use Zend\View\Model\JsonModel;
+use Laminas\Mvc\Controller\AbstractRestfulController;
+use Laminas\View\Model\JsonModel;
 
 /**
  * @SWG\Swagger(

@@ -3,7 +3,7 @@
 namespace Comparison;
 
 use Comparison\Infrastructure\Listener\ErrorListener;
-use Zend\Mvc\MvcEvent;
+use Laminas\Mvc\MvcEvent;
 
 class Module
 {

@@ -7,8 +7,8 @@ namespace ComparisonTest\Domain\Model;
 use Comparison\Domain\Model\Repository;
 use Comparison\Domain\Repository\RepositoryInterface;
 use Comparison\Domain\ValueObject\RepositorySlug;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
 class GithubRepositoryTest extends AbstractHttpControllerTestCase
 {
@@ -31,7 +31,7 @@ class GithubRepositoryTest extends AbstractHttpControllerTestCase
 
     public function testFindOneBySlugReturnsRepository()
     {
-        $validRepositorySlug = 'zendframework/zend-barcode';
+        $validRepositorySlug = 'laminas/laminas-barcode';
         $repositorySlug = new RepositorySlug($validRepositorySlug);
 
         $repository = $this->repositoryService->findOneBySlug($repositorySlug);

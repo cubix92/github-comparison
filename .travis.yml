@@ -1,6 +1,6 @@
 language: php
 php:
-  - 7.2
+  - 7.4
 os:
   - linux
 stages:
@@ -10,7 +10,6 @@ jobs:
     - stage: test
       install:
         - composer self-update
-        - composer require squizlabs/php_codesniffer:dev-master
         - composer install
         - phpenv rehash
       script:

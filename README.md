@@ -2,7 +2,7 @@
 
 ## About
 
-This is a simple web application using Zend Framework 3 whose purpose is to compare any 
+This is a simple web application using Laminas whose purpose is to compare any 
 two repositories fetching from GitHub. It takes links or names of any two public GitHub 
 repositories and return the basics statistics of these repositories together with their 
 comparison. For this reason added a simple formula calculating scoring of each repository.
