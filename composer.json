@@ -35,11 +35,13 @@
         "development-enable": "laminas-development-mode enable",
         "development-status": "laminas-development-mode status",
         "serve": "php -S 0.0.0.0:8081 -t public public/index.php",
-        "test": "./vendor/bin/phpunit"
+        "test:unit": "./vendor/bin/phpunit",
+        "test:integration": "./vendor/bin/behat"
     },
     "require-dev": {
         "laminas/laminas-test": "^3.3",
         "behat/behat": "^3.6",
-        "noiselabs/zf-test-case-behat-extension": "^0.2.0"
+        "noiselabs/zf-test-case-behat-extension": "^0.2.0",
+        "phpspec/prophecy-phpunit": "^2.0"
     }
 }

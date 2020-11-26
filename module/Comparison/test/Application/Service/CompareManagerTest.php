@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Application\Hydrator;
+namespace ComparisonTest\Application\Service;
 
 use Comparison\Application\Hydrator\RepositoryHydrator;
 use Comparison\Application\Service\CompareManager;
@@ -12,9 +12,12 @@ use Comparison\Domain\ValueObject\RepositorySlug;
 use ComparisonTest\Domain\Model\RepositoryFactory;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class CompareManagerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var RepositoryInterface $repository */
     private $repository;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Application\Hydrator;
+namespace ComparisonTest\Application\Service;
 
 use Comparison\Application\Exception\InvalidArgumentException as ParserInvalidArgument;
 use Comparison\Domain\Exception\InvalidSlugException;

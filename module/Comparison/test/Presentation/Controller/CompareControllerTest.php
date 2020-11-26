@@ -14,9 +14,12 @@ use Prophecy\Argument;
 use Laminas\Mvc\Controller\AbstractRestfulController;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class CompareControllerTest extends AbstractHttpControllerTestCase
 {
+    use ProphecyTrait;
+
     protected $compare;
 
     protected $parser;
