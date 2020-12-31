@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ComparisonTest\Features\Bootstrap;
 
-use Comparison\Presentation\Controller\CompareController;
+use Comparison\Infrastructure\Controller\CompareController;
 use Noiselabs\Behat\ZfTestCaseExtension\Context\ZfTestCaseAwareContext;
 use Noiselabs\Behat\ZfTestCaseExtension\TestCase\HttpControllerTestCase;
 
