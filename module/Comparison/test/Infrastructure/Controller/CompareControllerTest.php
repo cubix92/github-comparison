@@ -9,6 +9,7 @@ use Comparison\Application\Service\CompareManager;
 use Comparison\Domain\Exception\InvalidSlugException;
 use Comparison\Domain\ValueObject\RepositorySlug;
 use Comparison\Infrastructure\Controller\CompareController;
+use Comparison\Infrastructure\Utils\GithubParser;
 use Comparison\Infrastructure\Utils\ParserInterface;
 use Prophecy\Argument;
 use Laminas\Mvc\Controller\AbstractRestfulController;
@@ -39,12 +40,12 @@ class CompareControllerTest extends AbstractHttpControllerTestCase
         $sharedManager->clearListeners(AbstractRestfulController::class);
 
         $this->compare = $this->prophesize(CompareManager::class);
-        $this->parser = $this->prophesize(ParserInterface::class);
+        $this->parser = $this->prophesize(GithubParser::class);
 
         $services = $this->getApplicationServiceLocator();
         $services->setAllowOverride(true);
         $services->setService(CompareManager::class, $this->compare->reveal());
-        $services->setService(ParserInterface::class, $this->parser->reveal());
+        $services->setService(GithubParser::class, $this->parser->reveal());
         $services->setAllowOverride(false);
     }
 
