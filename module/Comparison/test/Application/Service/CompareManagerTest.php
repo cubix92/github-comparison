@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace ComparisonTest\Application\Service;
 
-use Comparison\Application\Hydrator\RepositoryHydrator;
 use Comparison\Application\Service\CompareManager;
-use Comparison\Domain\Model\Repository;
 use Comparison\Domain\Repository\RepositoryInterface;
 use Comparison\Domain\ValueObject\RepositorySlug;
 use ComparisonTest\Domain\Model\RepositoryFactory;
@@ -21,15 +19,11 @@ class CompareManagerTest extends TestCase
     /** @var RepositoryInterface $repository */
     private $repository;
 
-    /** @var RepositoryHydrator $hydrator */
-    private $hydrator;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->repository = $this->prophesize(RepositoryInterface::class);
-        $this->hydrator = $this->prophesize(RepositoryHydrator::class);
     }
 
     public function testComparesRepositoriesCorrectly()
@@ -40,12 +34,8 @@ class CompareManagerTest extends TestCase
         $this->repository->findOneBySlug(Argument::type(RepositorySlug::class))
             ->willReturn($repository)
             ->shouldBeCalled();
-        $this->hydrator->extract(Argument::type(Repository::class))
-            ->willReturn(RepositoryFactory::DEFAULT_DATA)
-            ->shouldBeCalled();
         $compareManager = new CompareManager(
-            $this->repository->reveal(),
-            $this->hydrator->reveal()
+            $this->repository->reveal()
         );
 
         $result = $compareManager->compare($firstRepositorySlug, $secondRepositorySlug);
@@ -61,7 +51,7 @@ class CompareManagerTest extends TestCase
         $this->assertArrayHasKey('stars', $firstResult);
         $this->assertArrayHasKey('watchers', $firstResult);
         $this->assertArrayHasKey('openPullRequests', $firstResult);
-        $this->assertArrayHasKey('closePullRequests', $firstResult);
+        $this->assertArrayHasKey('closedPullRequests', $firstResult);
         $this->assertArrayHasKey('lastReleaseDate', $firstResult);
         $this->assertIsArray($secondResult);
         $this->assertArrayHasKey('username', $secondResult);
@@ -70,7 +60,7 @@ class CompareManagerTest extends TestCase
         $this->assertArrayHasKey('stars', $secondResult);
         $this->assertArrayHasKey('watchers', $secondResult);
         $this->assertArrayHasKey('openPullRequests', $secondResult);
-        $this->assertArrayHasKey('closePullRequests', $secondResult);
+        $this->assertArrayHasKey('closedPullRequests', $secondResult);
         $this->assertArrayHasKey('lastReleaseDate', $secondResult);
         $this->assertEquals(RepositoryFactory::USERNAME, $firstResult['username']);
         $this->assertEquals(RepositoryFactory::NAME, $firstResult['name']);
@@ -78,7 +68,7 @@ class CompareManagerTest extends TestCase
         $this->assertEquals(RepositoryFactory::STARS, $firstResult['stars']);
         $this->assertEquals(RepositoryFactory::WATCHERS, $firstResult['watchers']);
         $this->assertEquals(RepositoryFactory::OPEN_PULL_REQUESTS, $firstResult['openPullRequests']);
-        $this->assertEquals(RepositoryFactory::CLOSE_PULL_REQUESTS, $firstResult['closePullRequests']);
+        $this->assertEquals(RepositoryFactory::CLOSE_PULL_REQUESTS, $firstResult['closedPullRequests']);
         $this->assertEquals(RepositoryFactory::LAST_RELEASE_DATE, $firstResult['lastReleaseDate']);
     }
 }

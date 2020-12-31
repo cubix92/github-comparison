@@ -36,7 +36,7 @@ class RepositoryTest extends TestCase
     {
         $firstRepository = RepositoryFactory::create();
         $secondRepository = RepositoryFactory::create([
-            'closePullRequests' => RepositoryFactory::CLOSE_PULL_REQUESTS + 10
+            'closedPullRequests' => RepositoryFactory::CLOSE_PULL_REQUESTS + 10
         ]);
         $thirdRepository = RepositoryFactory::create([
             'openPullRequests' => RepositoryFactory::OPEN_PULL_REQUESTS + 20

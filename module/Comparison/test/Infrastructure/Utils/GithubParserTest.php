@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Application\Service;
+namespace ComparisonTest\Infrastructure\Utils;
 
 use Comparison\Application\Exception\InvalidArgumentException as ParserInvalidArgument;
 use Comparison\Domain\Exception\InvalidSlugException;
-use Comparison\Application\Service\GithubParser;
-use Comparison\Application\Service\ParserInterface;
 use Comparison\Domain\ValueObject\RepositorySlug;
+use Comparison\Infrastructure\Utils\GithubParser;
+use Comparison\Infrastructure\Utils\ParserInterface;
 use PHPUnit\Framework\TestCase;
 
 class GithubParserTest extends TestCase

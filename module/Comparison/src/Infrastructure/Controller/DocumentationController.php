@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Comparison\Presentation\Controller;
+namespace Comparison\Infrastructure\Controller;
 
 use Laminas\Json\Json;
 use Laminas\Mvc\Controller\AbstractActionController;

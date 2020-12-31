@@ -8,9 +8,9 @@ use Comparison\Domain\Exception\InvalidSlugException;
 
 class RepositorySlug
 {
-    private $username;
+    private string $username;
 
-    private $repositoryName;
+    private string $repositoryName;
 
     public function __construct(string $slug)
     {

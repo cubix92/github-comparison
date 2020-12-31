@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Presentation\Controller;
+namespace ComparisonTest\Infrastructure\Controller;
 
 use Comparison\Application\Exception\NotFoundRepositoryException;
-use Comparison\Application\Service\CompareInterface;
-use Comparison\Application\Service\ParserInterface;
+use Comparison\Application\Service\CompareManager;
 use Comparison\Domain\Exception\InvalidSlugException;
 use Comparison\Domain\ValueObject\RepositorySlug;
-use Comparison\Presentation\Controller\CompareController;
+use Comparison\Infrastructure\Controller\CompareController;
+use Comparison\Infrastructure\Utils\ParserInterface;
 use Prophecy\Argument;
 use Laminas\Mvc\Controller\AbstractRestfulController;
 use Laminas\Stdlib\ArrayUtils;
@@ -38,12 +38,12 @@ class CompareControllerTest extends AbstractHttpControllerTestCase
         $sharedManager = $this->getApplication()->getEventManager()->getSharedManager();
         $sharedManager->clearListeners(AbstractRestfulController::class);
 
-        $this->compare = $this->prophesize(CompareInterface::class);
+        $this->compare = $this->prophesize(CompareManager::class);
         $this->parser = $this->prophesize(ParserInterface::class);
 
         $services = $this->getApplicationServiceLocator();
         $services->setAllowOverride(true);
-        $services->setService(CompareInterface::class, $this->compare->reveal());
+        $services->setService(CompareManager::class, $this->compare->reveal());
         $services->setService(ParserInterface::class, $this->parser->reveal());
         $services->setAllowOverride(false);
     }

@@ -16,7 +16,7 @@ return [
                 'options' => [
                     'route' => '/',
                     'defaults' => [
-                        'controller' => Presentation\Controller\DocumentationController::class,
+                        'controller' => Infrastructure\Controller\DocumentationController::class,
                         'action' => 'display'
                     ],
                 ],
@@ -40,7 +40,7 @@ return [
                                 'options' => [
                                     'route' => '/compare',
                                     'defaults' => [
-                                        'controller' => Presentation\Controller\CompareController::class,
+                                        'controller' => Infrastructure\Controller\CompareController::class,
                                         'action' => 'compare'
                                     ]
                                 ],
@@ -50,7 +50,7 @@ return [
                                 'options' => [
                                     'route' => '/specification',
                                     'defaults' => [
-                                        'controller' => Presentation\Controller\DocumentationController::class,
+                                        'controller' => Infrastructure\Controller\DocumentationController::class,
                                         'action' => 'specification',
                                     ],
                                 ]
@@ -63,8 +63,8 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Presentation\Controller\CompareController::class => ReflectionBasedAbstractFactory::class,
-            Presentation\Controller\DocumentationController::class => InvokableFactory::class,
+            Infrastructure\Controller\CompareController::class => ReflectionBasedAbstractFactory::class,
+            Infrastructure\Controller\DocumentationController::class => InvokableFactory::class,
         ],
     ],
     'service_manager' => [
@@ -72,18 +72,15 @@ return [
             ConfigAbstractFactory::class,
         ],
         'factories' => [
-            Application\Hydrator\RepositoryHydrator::class => InvokableFactory::class,
             Application\Service\CompareManager::class => ReflectionBasedAbstractFactory::class,
-            Application\Service\GithubParser::class => ReflectionBasedAbstractFactory::class,
+            Infrastructure\Utils\GithubParser::class => ReflectionBasedAbstractFactory::class,
             Infrastructure\Listener\ErrorListener::class => InvokableFactory::class,
             Infrastructure\Repository\GithubRepository::class => ReflectionBasedAbstractFactory::class,
             GithubClient::class => InvokableFactory::class,
         ],
         'aliases' => [
             Domain\Repository\RepositoryInterface::class => Infrastructure\Repository\GithubRepository::class,
-            Application\Hydrator\RepositoryHydratorInterface::class => Application\Hydrator\RepositoryHydrator::class,
-            Application\Service\CompareInterface::class => Application\Service\CompareManager::class,
-            Application\Service\ParserInterface::class => Application\Service\GithubParser::class,
+            Infrastructure\Utils\ParserInterface::class => Infrastructure\Utils\GithubParser::class,
         ]
     ],
     'view_manager' => [

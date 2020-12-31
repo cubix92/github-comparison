@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Presentation\Controller;
+namespace ComparisonTest\Infrastructure\Controller;
 
-use Comparison\Presentation\Controller\DocumentationController;
+use Comparison\Infrastructure\Controller\DocumentationController;
 use Laminas\Mvc\Controller\AbstractController;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class SwaggerControllerTest extends AbstractHttpControllerTestCase
+class DocumentationControllerTest extends AbstractHttpControllerTestCase
 {
     protected function setUp(): void
     {

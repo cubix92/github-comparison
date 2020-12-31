@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Comparison\Application\Service;
+namespace Comparison\Infrastructure\Utils;
 
 use Comparison\Domain\ValueObject\RepositorySlug;
 

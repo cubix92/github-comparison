@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace ComparisonTest\Application\Hydrator;
 
-use Comparison\Application\Hydrator\RepositoryHydrator;
-use Comparison\Application\Hydrator\RepositoryHydratorInterface;
+use Comparison\Domain\Model\RepositoryHydrator;
 use ComparisonTest\Domain\Model\RepositoryFactory;
 use PHPUnit\Framework\TestCase;
 
 class RepositoryHydratorTest extends TestCase
 {
-    /** @var RepositoryHydratorInterface $repositoryHydrator */
+    /** @var RepositoryHydrator $repositoryHydrator */
     private $repositoryHydrator;
 
     protected function setUp(): void

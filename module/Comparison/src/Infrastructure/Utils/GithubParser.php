@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Comparison\Application\Service;
+namespace Comparison\Infrastructure\Utils;
 
 use Comparison\Domain\ValueObject\RepositorySlug;
 use Laminas\Uri\Exception\InvalidArgumentException;
@@ -10,7 +10,7 @@ use Comparison\Application\Exception\InvalidArgumentException as ParserInvalidAr
 use Laminas\Uri\Uri;
 use Laminas\Uri\UriFactory;
 
-class GithubParser implements ParserInterface
+class GithubParser
 {
     public function parse(string $parameter): RepositorySlug
     {

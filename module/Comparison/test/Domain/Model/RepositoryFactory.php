@@ -25,7 +25,7 @@ class RepositoryFactory
         'stars' => self::STARS,
         'watchers' => self::WATCHERS,
         'openPullRequests' => self::OPEN_PULL_REQUESTS,
-        'closePullRequests' => self::CLOSE_PULL_REQUESTS,
+        'closedPullRequests' => self::CLOSE_PULL_REQUESTS,
         'lastReleaseDate' => self::LAST_RELEASE_DATE
     ];
 
@@ -40,7 +40,7 @@ class RepositoryFactory
             $result['stars'],
             $result['watchers'],
             $result['openPullRequests'],
-            $result['closePullRequests'],
+            $result['closedPullRequests'],
             new \DateTime($result['lastReleaseDate'])
         );
     }

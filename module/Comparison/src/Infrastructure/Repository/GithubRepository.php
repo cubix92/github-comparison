@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Comparison\Infrastructure\Repository;
 
-use Comparison\Application\Hydrator\RepositoryHydratorInterface;
 use Comparison\Domain\Model\Repository;
+use Comparison\Domain\Model\RepositoryHydrator;
 use Comparison\Domain\ValueObject\RepositorySlug;
 use Github\Client as GithubClient;
 use Github\Exception\RuntimeException;
@@ -16,10 +16,9 @@ class GithubRepository extends AbstractRepository
 
     protected $hydrator;
 
-    public function __construct(GithubClient $client, RepositoryHydratorInterface $hydrator)
+    public function __construct(GithubClient $client)
     {
         $this->client = $client;
-        $this->hydrator = $hydrator;
     }
 
     public function findOneBySlug(RepositorySlug $repositorySlug): ?Repository
@@ -43,6 +42,6 @@ class GithubRepository extends AbstractRepository
         $data['openPullRequests'] = count($client->api('pull_request')->all($username, $slug, ['state' => 'close']));
         $data['lastReleaseDate'] = $lastReleaseDate ? $lastReleaseDate['published_at'] : null;
 
-        return $this->hydrator->hydrate($data);
+        return (new RepositoryHydrator)->hydrate($data);
     }
 }

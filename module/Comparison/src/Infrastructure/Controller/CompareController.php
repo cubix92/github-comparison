@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Comparison\Presentation\Controller;
+namespace Comparison\Infrastructure\Controller;
 
-use Comparison\Application\Service\CompareInterface;
-use Comparison\Application\Service\ParserInterface;
 use Comparison\Application\Exception\NotFoundRepositoryException;
+use Comparison\Application\Service\CompareManager;
 use Comparison\Domain\Exception\InvalidSlugException;
+use Comparison\Infrastructure\Utils\ParserInterface;
 use Laminas\Mvc\Controller\AbstractRestfulController;
 use Laminas\View\Model\JsonModel;
+use Swagger\Annotations as SWG;
 
 /**
  * @SWG\Swagger(
@@ -39,11 +40,11 @@ use Laminas\View\Model\JsonModel;
  */
 class CompareController extends AbstractRestfulController
 {
-    private $compareManager;
+    private CompareManager $compareManager;
 
-    private $parserService;
+    private ParserInterface $parserService;
 
-    public function __construct(CompareInterface $compareManager, ParserInterface $parserService)
+    public function __construct(CompareManager $compareManager, ParserInterface $parserService)
     {
         $this->compareManager = $compareManager;
         $this->parserService = $parserService;

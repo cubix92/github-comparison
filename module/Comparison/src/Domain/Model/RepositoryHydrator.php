@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Comparison\Application\Hydrator;
+namespace Comparison\Domain\Model;
 
-use Comparison\Domain\Model\Repository;
-
-class RepositoryHydrator implements RepositoryHydratorInterface
+class RepositoryHydrator
 {
     public function extract(Repository $repository): array
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ComparisonTest\Domain\Model;
+namespace ComparisonTest\Infrastructure\Repository;
 
 use Comparison\Domain\Model\Repository;
 use Comparison\Domain\Repository\RepositoryInterface;
