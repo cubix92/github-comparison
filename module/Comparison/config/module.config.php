@@ -80,7 +80,6 @@ return [
         ],
         'aliases' => [
             Domain\Repository\RepositoryInterface::class => Infrastructure\Repository\GithubRepository::class,
-            Infrastructure\Utils\ParserInterface::class => Infrastructure\Utils\GithubParser::class,
         ]
     ],
     'view_manager' => [

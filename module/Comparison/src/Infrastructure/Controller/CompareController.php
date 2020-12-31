@@ -7,7 +7,7 @@ namespace Comparison\Infrastructure\Controller;
 use Comparison\Application\Exception\NotFoundRepositoryException;
 use Comparison\Application\Service\CompareManager;
 use Comparison\Domain\Exception\InvalidSlugException;
-use Comparison\Infrastructure\Utils\ParserInterface;
+use Comparison\Infrastructure\Utils\GithubParser;
 use Laminas\Mvc\Controller\AbstractRestfulController;
 use Laminas\View\Model\JsonModel;
 use Swagger\Annotations as SWG;
@@ -42,9 +42,9 @@ class CompareController extends AbstractRestfulController
 {
     private CompareManager $compareManager;
 
-    private ParserInterface $parserService;
+    private GithubParser $parserService;
 
-    public function __construct(CompareManager $compareManager, ParserInterface $parserService)
+    public function __construct(CompareManager $compareManager, GithubParser $parserService)
     {
         $this->compareManager = $compareManager;
         $this->parserService = $parserService;
